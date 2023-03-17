@@ -4,4 +4,7 @@ module.exports = {
     "../stories/**/*.stories.@(js|jsx|ts|tsx)",
   ],
   addons: ["../preset.js", "@storybook/addon-essentials"],
+  webpackFinal: async (config, { configType }) => {
+    return config;
+  },
 };

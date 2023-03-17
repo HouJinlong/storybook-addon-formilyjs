@@ -16,11 +16,43 @@ export default {
 const Template = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {
-  primary: true,
-  label: "Button",
-};
 
+Primary.parameters = {
+  lowcode_schema: {
+    'id':'6412c0a2f1e1dd6483cc6f47',
+    "props": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "title": "最简",
+          "type": "string"
+        },
+        'size': {
+          title:'单选-按钮',
+          type: 'string',
+          'x-component': 'Radio.Group',
+          'x-component-props':{
+            'optionType':'button',
+          },
+          enum:["small", "medium", "large"].map(v=>{
+            return {
+              label: v,
+              value:v
+            }
+          })
+        },
+        'string-css-image': {
+          type: 'string',
+          title:'css图片',
+          'x-component': 'CssImageSetter',
+        },
+      }
+    },
+    "default": {
+      "label": "1223"
+    }
+  },
+}
 export const Secondary = Template.bind({});
 Secondary.args = {
   label: "Button",
